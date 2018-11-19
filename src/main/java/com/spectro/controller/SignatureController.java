@@ -22,8 +22,11 @@ public class SignatureController {
 
     @RequestMapping(value = "/getSignature", method = RequestMethod.POST)
     public @ResponseBody String getSignature(@RequestParam String parameters) throws Exception {
-
         return signatureService.getSignature(parameters);
+    }
 
+    @RequestMapping(value = "/validate", method = RequestMethod.POST)
+    public @ResponseBody Boolean validate(@RequestParam String parameters,@RequestParam String responseSign) throws Exception {
+        return signatureService.validate(parameters,responseSign);
     }
 }
